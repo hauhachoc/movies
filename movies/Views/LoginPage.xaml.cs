@@ -38,7 +38,7 @@ namespace movies.Views
 
 		void RegisterClickEvent(object sender, EventArgs e)
 		{
-			//Navigation.PushAsync(new Views.Register());
+			Navigation.PushAsync(new Views.RegisterPage());
 		}
 
 		public void ShowAlert(string title, string content)
