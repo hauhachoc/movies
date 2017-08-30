@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage 
+    BackgroundColor="White"
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="movies.Views.RegisterPage">
@@ -21,27 +22,27 @@
                     Margin="0,0,0,50"/>
 
                 <Entry 
-                    x:Name="edtName"
                     TextColor="Black"
+                    x:Name="edtName"
                     PlaceholderColor="Gray"
                     Placeholder="Name"/>
 
                 <Entry 
+                    TextColor="Black"
                     x:Name="edtEmail"
                     PlaceholderColor="Gray"
-                    TextColor="Black"
                     Placeholder="Email"/>
 
                 <Entry 
+                    TextColor="Black"
                     x:Name="edtPw"
                     PlaceholderColor="Gray"
-                    TextColor="Black"
                     Placeholder="Password"/>
 
                 <Entry 
+                    TextColor="Black"
                     x:Name="edtConfirmPw"
                     PlaceholderColor="Gray"
-                    TextColor="Black"
                     Placeholder="Confirm Password"/>
 
                 <Button 

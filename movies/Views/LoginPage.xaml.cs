@@ -17,6 +17,8 @@ namespace movies.Views
         public LoginPage()
         {
             InitializeComponent();
+            edtEmail.Text = "Aa@aa.aa";
+            edtPw.Text = "123456";
         }
 		void LoginClick(object sender, EventArgs e)
 		{
@@ -32,7 +34,7 @@ namespace movies.Views
 			{
 				Debug.WriteLine(@"             Success:" + Response.data.ToString());
 				Application.Current.Properties["token"] = Response.data.access_token;
-				//Navigation.PushAsync(new Views.MoviesPage()).ConfigureAwait(false);
+                Navigation.PushAsync(new movies.moviesPage()).ConfigureAwait(false);
 			}
 		}
 
