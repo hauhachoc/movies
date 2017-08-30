@@ -3,6 +3,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:movies"
+    xmlns:controls="clr-namespace:movies.Renderer"
     x:Class="movies.moviesPage"
     BackgroundColor="White" >
        <ContentPage.ToolbarItems>
@@ -13,7 +14,8 @@
           <ListView 
                 x:Name="listViewMovie" 
                 VerticalOptions="FillAndExpand"
-                RowHeight="250">
+                RowHeight="150"
+                HorizontalOptions="Fill">
             <ListView.ItemTemplate>
               <DataTemplate>
                 <ViewCell>
@@ -22,20 +24,20 @@
                   </ViewCell.ContextActions>
                   <StackLayout HorizontalOptions="Fill" VerticalOptions="FillAndExpand" MinimumHeightRequest="100" Orientation="Vertical" Padding="10,0,10,0">
                       <Grid Padding="5" HeightRequest="50" VerticalOptions="Start" >
-                            <!--<Grid.RowDefinitions>  
+                            <Grid.RowDefinitions>  
                                 <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>  -->
+                            </Grid.RowDefinitions>  
                             <Grid.ColumnDefinitions>  
                                 <ColumnDefinition Width="Auto" />  
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions> 
                          <Grid.Children>
-                            <Image Source="{Binding image}" Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="FillAndExpand"/>
-                            <StackLayout Spacing="2" Grid.Column="2" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                            <Image Source="{Binding image}" Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Fill" />
+                            <StackLayout Spacing="2" Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Fill" Orientation="Vertical">
                                 <Label Text="{Binding title}"   Font="Bold, 14"  TextColor="#5D5D5D" />
                                 <Label Text="{Binding views}" Font="12" TextColor="#50AB78" />
-                                <Label  Text="{Binding description}" Font="12" TextColor="#5D5D5D" />
-                                <Button BackgroundColor="Olive" Text="Watch" TextColor="White"/>
+                                <controls:MultiLineLabel Lines="4"  Text="{Binding description}" Font="12" TextColor="#5D5D5D" />
+<!--                                <Button BackgroundColor="Olive" Text="Watch" TextColor="White"/>-->
                             </StackLayout>
                         </Grid.Children>
                        </Grid>

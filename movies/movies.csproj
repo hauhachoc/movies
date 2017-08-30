@@ -68,6 +68,7 @@
     <Compile Include="Views\MovieDetailPage.xaml.cs">
       <DependentUpon>MovieDetailPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Renderer\MultiLineLabel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
@@ -75,6 +76,7 @@
     <Folder Include="Models\" />
     <Folder Include="Models\Response\" />
     <Folder Include="Utils\" />
+    <Folder Include="Renderer\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
