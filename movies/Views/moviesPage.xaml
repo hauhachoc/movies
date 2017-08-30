@@ -1,51 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ContentPage 
-    xmlns="http://xamarin.com/schemas/2014/forms" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:movies"
-    xmlns:controls="clr-namespace:movies.Renderer"
-    x:Class="movies.moviesPage"
-    BackgroundColor="White" >
-       <ContentPage.ToolbarItems>
-        <ToolbarItem Name="HK fimls"  Order="Primary" Priority="0"/>
-      </ContentPage.ToolbarItems>
-      <ContentPage.Content>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:movies" xmlns:controls="clr-namespace:movies.Renderer" x:Class="movies.moviesPage" BackgroundColor="White">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="HK fimls" Order="Primary" Priority="0" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
         <StackLayout Orientation="Vertical">
-          <ListView 
-                x:Name="listViewMovie" 
-                VerticalOptions="FillAndExpand"
-                RowHeight="150"
-                HorizontalOptions="Fill">
-            <ListView.ItemTemplate>
-              <DataTemplate>
-                <ViewCell>
-                  <ViewCell.ContextActions>
-                    <MenuItem  Text="Delete" IsDestructive="True" CommandParameter="{Binding}" />
-                  </ViewCell.ContextActions>
-                  <StackLayout HorizontalOptions="Fill" VerticalOptions="FillAndExpand" MinimumHeightRequest="100" Orientation="Vertical" Padding="10,0,10,0">
-                      <Grid Padding="5" HeightRequest="50" VerticalOptions="Start" >
-                            <Grid.RowDefinitions>  
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>  
-                            <Grid.ColumnDefinitions>  
-                                <ColumnDefinition Width="Auto" />  
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions> 
-                         <Grid.Children>
-                            <Image Source="{Binding image}" Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Fill" />
-                            <StackLayout Spacing="2" Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Fill" Orientation="Vertical">
-                                <Label Text="{Binding title}"   Font="Bold, 14"  TextColor="#5D5D5D" />
-                                <Label Text="{Binding views}" Font="12" TextColor="#50AB78" />
-                                <controls:MultiLineLabel Lines="4"  Text="{Binding description}" Font="12" TextColor="#5D5D5D" />
-<!--                                <Button BackgroundColor="Olive" Text="Watch" TextColor="White"/>-->
+            <ListView x:Name="listViewMovie" VerticalOptions="FillAndExpand" RowHeight="150" HorizontalOptions="Fill">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Delete" IsDestructive="True" CommandParameter="{Binding}" />
+                            </ViewCell.ContextActions>
+                            <StackLayout HorizontalOptions="Fill" VerticalOptions="FillAndExpand" MinimumHeightRequest="100" Orientation="Vertical" Padding="10,0,10,0">
+                                <Grid Padding="5" HeightRequest="50" VerticalOptions="Start">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.Children>
+                                        <Image Source="{Binding image}" Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Fill" />
+                                        <StackLayout Spacing="2" Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Fill" Orientation="Vertical">
+                                            <Label Text="{Binding title}" Font="Bold, 14" TextColor="#5D5D5D" />
+                                            <Label Text="{Binding views}" Font="12" TextColor="#50AB78" />
+                                            <controls:MultiLineLabel Lines="4" Text="{Binding description}" Font="12" TextColor="#5D5D5D" />
+                                            <!--                                <Button BackgroundColor="Olive" Text="Watch" TextColor="White"/>-->
+                                        </StackLayout>
+                                    </Grid.Children>
+                                </Grid>
                             </StackLayout>
-                        </Grid.Children>
-                       </Grid>
-                  </StackLayout>
-                </ViewCell>
-              </DataTemplate>
-            </ListView.ItemTemplate>
-          </ListView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
-      </ContentPage.Content>
+    </ContentPage.Content>
 </ContentPage>

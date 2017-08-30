@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage 
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="movies.Views.MovieDetailPage"
-    BackgroundColor="White" >
-    
-	<ContentPage.Content>
-        
-        <Label 
-            x:Name="lblTitle"
-            Margin="10,10,0,10"
-            FontSize="20"
-            Text="movie"
-            TextColor="Black"/>
-        
-	</ContentPage.Content>
-    
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="movies.Views.MovieDetailPage" xmlns:local="clr-namespace:movies" xmlns:controls="clr-namespace:movies.Renderer" BackgroundColor="White">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="toolbar" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content Orientation="Vertical" VerticalOptions="FillAndExpand">
+
+        <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand"  HorizontalOptions="Fill">
+        <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Margin="5">
+            <Image x:Name="imgMovie" HorizontalOptions="Fill" VerticalOptions="Fill" />
+                      <StackLayout VerticalOptions="Center" HorizontalOptions="Fill" Orientation="Vertical">
+                <Label x:Name="lblTitle" TextColor="#5D5D5D" />
+                <Label x:Name="lblView" Font="12" TextColor="#50AB78" />
+                <Label x:Name="lblGenres" Font="12" TextColor="#50AB78" />
+                <Label x:Name="lblActor" Font="12" TextColor="#50AB78" />
+                <Label x:Name="lblDirector" Font="12" TextColor="#50AB78" />
+                <Label x:Name="lblManu" Font="12" TextColor="#50AB78" />
+                <Label x:Name="lblTime" Font="12" TextColor="#50AB78" />
+            </StackLayout>
+            <controls:MultiLineLabel x:Name="lblDes" Lines="4" Font="12" TextColor="#5D5D5D" />
+            <Label Text="Watch the trailer" TextColor="Maroon" Font="Bold"/>
+            <WebView x:Name="wvMovie" VerticalOptions="FillAndExpand"  HorizontalOptions="FillAndExpand" MinimumHeightRequest="200"/>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>

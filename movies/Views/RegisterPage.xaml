@@ -1,56 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage 
-    BackgroundColor="White"
-    xmlns="http://xamarin.com/schemas/2014/forms" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="movies.Views.RegisterPage">
-
-           <StackLayout 
-                Margin="40,40,50,0"
-                Spacing="20"
-                Orientation="Vertical"
-                VerticalOptions="FillAndExpand"
-                HorizontalOptions="FillAndExpand" >
-
-                <Label 
-                    TextColor="Black"
-                    x:Name="lblName"
-                    Text="Register" 
-                    FontSize="40"
-                    VerticalOptions="Center" 
-                    HorizontalOptions="Center"
-                    Margin="0,0,0,50"/>
-
-                <Entry 
-                    TextColor="Black"
-                    x:Name="edtName"
-                    PlaceholderColor="Gray"
-                    Placeholder="Name"/>
-
-                <Entry 
-                    TextColor="Black"
-                    x:Name="edtEmail"
-                    PlaceholderColor="Gray"
-                    Placeholder="Email"/>
-
-                <Entry 
-                    TextColor="Black"
-                    x:Name="edtPw"
-                    PlaceholderColor="Gray"
-                    Placeholder="Password"/>
-
-                <Entry 
-                    TextColor="Black"
-                    x:Name="edtConfirmPw"
-                    PlaceholderColor="Gray"
-                    Placeholder="Confirm Password"/>
-
-                <Button 
-                    x:Name="btnRegister"
-                    Clicked="Register_Clicked"
-                    Margin="0,50,0,0"
-                    TextColor="White"
-                    BackgroundColor="Teal"
-                    Text="Register" />
-        </StackLayout>
+<ContentPage BackgroundColor="White" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="movies.Views.RegisterPage">
+    <StackLayout Margin="40,40,50,0" Spacing="20" Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <Label TextColor="Black" x:Name="lblName" Text="Register" FontSize="40" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0,0,50" />
+        <Entry TextColor="Black" x:Name="edtName" PlaceholderColor="Gray" Placeholder="Name" />
+        <Entry TextColor="Black" x:Name="edtEmail" PlaceholderColor="Gray" Placeholder="Email" />
+        <Entry TextColor="Black" x:Name="edtPw" PlaceholderColor="Gray" Placeholder="Password" />
+        <Entry TextColor="Black" x:Name="edtConfirmPw" PlaceholderColor="Gray" Placeholder="Confirm Password" />
+        <Button x:Name="btnRegister" Clicked="Register_Clicked" Margin="0,50,0,0" TextColor="White" BackgroundColor="Teal" Text="Register" />
+    </StackLayout>
 </ContentPage>

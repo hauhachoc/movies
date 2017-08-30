@@ -5,11 +5,11 @@ namespace movies
 {
     public partial class App : Application
     {
-        public static BaseUserManager userManager { get; private set; } 
+        public static BaseUserManager userManager { get; private set; }
         public App()
         {
             userManager = new BaseUserManager(new RestService());
-			MainPage = new NavigationPage(new Views.LoginPage()) ;
+            MainPage = new NavigationPage(new Views.LoginPage());
         }
 
         protected override void OnStart()
