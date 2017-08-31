@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace movies.Models.Response
 {
-    public class Film
+    public class Film : BaseViewModel
     {
 		[JsonProperty("id")]
 		public int id { get; set; }

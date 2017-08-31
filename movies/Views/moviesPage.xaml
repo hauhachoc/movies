@@ -5,28 +5,35 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
-            <ListView x:Name="listViewMovie" VerticalOptions="FillAndExpand" RowHeight="150" HorizontalOptions="Fill">
+            <ListView x:Name="listViewMovie" VerticalOptions="FillAndExpand" RowHeight="140" HorizontalOptions="Fill">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.ContextActions>
                                 <MenuItem Text="Delete" IsDestructive="True" CommandParameter="{Binding}" />
                             </ViewCell.ContextActions>
-                            <StackLayout HorizontalOptions="Fill" VerticalOptions="FillAndExpand" MinimumHeightRequest="100" Orientation="Vertical" Padding="10,0,10,0">
-                                <Grid Padding="5" HeightRequest="50" VerticalOptions="Start">
+                            <StackLayout Spacing="5" HorizontalOptions="Fill" VerticalOptions="FillAndExpand" MinimumHeightRequest="100" Orientation="Vertical" Padding="10,0,10,0">
+                                <Grid Padding="5" HeightRequest="50" VerticalOptions="FillAndExpand">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="3*" />
                                     </Grid.ColumnDefinitions>
                                     <Grid.Children>
-                                        <Image Source="{Binding image}" Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Fill" />
-                                        <StackLayout Spacing="2" Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Fill" Orientation="Vertical">
+                                        <Image Aspect="AspectFit" Source="{Binding image}" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+                                        <StackLayout Spacing="2" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Fill" Orientation="Vertical">
                                             <Label Text="{Binding title}" Font="Bold, 14" TextColor="#5D5D5D" />
-                                            <Label Text="{Binding views}" Font="12" TextColor="#50AB78" />
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="Views :" TextColor="Black" Font="12"/>
+                                                <Label Text="{Binding views}" Font="12" TextColor="#50AB78" />
+                                            </StackLayout>
                                             <controls:MultiLineLabel Lines="4" Text="{Binding description}" Font="12" TextColor="#5D5D5D" />
+                                            <StackLayout Orientation="Horizontal">
+                                                <Image Source="{local:ImageResource movies.Resources.like.png}" />
+                                                <Label Text="Like" TextColor="Black" Font="12"/>
+                                            </StackLayout>
                                             <!--                                <Button BackgroundColor="Olive" Text="Watch" TextColor="White"/>-->
                                         </StackLayout>
                                     </Grid.Children>

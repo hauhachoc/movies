@@ -22,8 +22,8 @@ namespace movies.Views
         }
 		void LoginClick(object sender, EventArgs e)
 		{
-			//App.userManager.LoginTaskAsync(edtEmail.Text, edtPw.Text);
-			Response = new BaseResponse();
+            //App.userManager.LoginTaskAsync(edtEmail.Text, edtPw.Text);
+            Response = new BaseResponse();
 			task = App.userManager.LoginTaskAsync(edtEmail.Text, edtPw.Text);
 			Response = task.Result;
 			if (Response.error)

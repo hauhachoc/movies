@@ -4,23 +4,22 @@
         <ToolbarItem x:Name="toolbar" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content Orientation="Vertical" VerticalOptions="FillAndExpand">
-
-        <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand"  HorizontalOptions="Fill">
-        <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Margin="5">
-            <Image x:Name="imgMovie" HorizontalOptions="Fill" VerticalOptions="Fill" />
-                      <StackLayout VerticalOptions="Center" HorizontalOptions="Fill" Orientation="Vertical">
-                <Label x:Name="lblTitle" TextColor="#5D5D5D" />
-                <Label x:Name="lblView" Font="12" TextColor="#50AB78" />
-                <Label x:Name="lblGenres" Font="12" TextColor="#50AB78" />
-                <Label x:Name="lblActor" Font="12" TextColor="#50AB78" />
-                <Label x:Name="lblDirector" Font="12" TextColor="#50AB78" />
-                <Label x:Name="lblManu" Font="12" TextColor="#50AB78" />
-                <Label x:Name="lblTime" Font="12" TextColor="#50AB78" />
+        <ScrollView Orientation="Vertical" >
+            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Margin="5">
+                <Image x:Name="imgMovie" HorizontalOptions="Fill" VerticalOptions="Fill" />
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Fill" Orientation="Vertical">
+                    <Label x:Name="lblTitle" TextColor="#5D5D5D" />
+                    <Label x:Name="lblView" Font="12" TextColor="#50AB78" />
+                    <Label x:Name="lblGenres" Font="12" TextColor="#50AB78" />
+                    <Label x:Name="lblActor" Font="12" TextColor="#50AB78" />
+                    <Label x:Name="lblDirector" Font="12" TextColor="#50AB78" />
+                    <Label x:Name="lblManu" Font="12" TextColor="#50AB78" />
+                    <Label x:Name="lblTime" Font="12" TextColor="#50AB78" />
+                </StackLayout>
+                <controls:MultiLineLabel x:Name="lblDes" Lines="4" Font="12" TextColor="#5D5D5D" />
+                <Label Text="Watch the trailer" TextColor="Maroon" Font="Bold" />
+                <WebView x:Name="wvMovie" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" MinimumHeightRequest="300" Margin="5,20" />
             </StackLayout>
-            <controls:MultiLineLabel x:Name="lblDes" Lines="4" Font="12" TextColor="#5D5D5D" />
-            <Label Text="Watch the trailer" TextColor="Maroon" Font="Bold"/>
-            <WebView x:Name="wvMovie" VerticalOptions="FillAndExpand"  HorizontalOptions="FillAndExpand" MinimumHeightRequest="200"/>
-        </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
