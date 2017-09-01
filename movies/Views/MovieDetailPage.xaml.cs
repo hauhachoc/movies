@@ -32,10 +32,10 @@ namespace movies.Views
             imgMovie.Source = ImageSource.FromUri(new Uri(film.image));
             lblView.Text = "Views : " + film.views;
             lblDes.Text = film.description;
-            lblGenres.Text = "Genres : " + film.category;
-            lblDirector.Text = "Director:" + film.director;
-            lblTime.Text = "Time : " + film.duration;
-            lblActor.Text = "Actor : " + film.actor;
+            lblGenres.Text =  film.category;
+            lblDirector.Text = film.director;
+            lblTime.Text = film.duration + " minute";
+            lblActor.Text =film.actor;
             wvMovie.Source = film.link; 
         }
     }

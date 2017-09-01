@@ -4,18 +4,50 @@
         <ToolbarItem x:Name="toolbar" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content Orientation="Vertical" VerticalOptions="FillAndExpand">
-        <ScrollView Orientation="Vertical" >
+        <ScrollView Orientation="Vertical">
             <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Margin="5">
-                <Image x:Name="imgMovie" HorizontalOptions="Fill" VerticalOptions="Fill" />
-                <StackLayout VerticalOptions="Center" HorizontalOptions="Fill" Orientation="Vertical">
-                    <Label x:Name="lblTitle" TextColor="#5D5D5D" />
-                    <Label x:Name="lblView" Font="12" TextColor="#50AB78" />
-                    <Label x:Name="lblGenres" Font="12" TextColor="#50AB78" />
-                    <Label x:Name="lblActor" Font="12" TextColor="#50AB78" />
-                    <Label x:Name="lblDirector" Font="12" TextColor="#50AB78" />
-                    <Label x:Name="lblManu" Font="12" TextColor="#50AB78" />
-                    <Label x:Name="lblTime" Font="12" TextColor="#50AB78" />
-                </StackLayout>
+                <Grid Padding="5" HeightRequest="50" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.Children>
+                        <Image x:Name="imgMovie" Aspect="AspectFit" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+                        <StackLayout Spacing="2" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="StartAndExpand" Orientation="Vertical">
+                            <StackLayout VerticalOptions="Center" HorizontalOptions="Fill" Orientation="Vertical">
+                                <Label x:Name="lblTitle" TextColor="#5D5D5D" />
+                                <Label x:Name="lblView" Font="12" TextColor="#50AB78" />
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Genres : " Font="12" TextColor="Black" />
+                                    <Label x:Name="lblGenres" Font="12" TextColor="#50AB78" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Actor : " Font="12" TextColor="Black" />
+                                    <Label x:Name="lblActor" Font="12" TextColor="#50AB78" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Director : " Font="12" TextColor="Black" />
+                                    <Label x:Name="lblDirector" Font="12" TextColor="#50AB78" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Manufacturer : " Font="12" TextColor="Black" />
+                                    <Label x:Name="lblManu" Font="12" TextColor="#50AB78" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Time : " Font="12" TextColor="Black" />
+                                    <Label x:Name="lblTime" Font="12" TextColor="#50AB78" />
+                                </StackLayout>
+                                <!--<StackLayout Orientation="Horizontal">
+                                                <Image Source="{local:ImageResource movies.Resources.like.png}" WidthRequest="13" HeightRequest="13" />
+                                                <Label Text="Like" TextColor="Black" Font="12" />
+                                            </StackLayout>-->
+                            </StackLayout>
+                        </StackLayout>
+                    </Grid.Children>
+                </Grid>
                 <controls:MultiLineLabel x:Name="lblDes" Lines="4" Font="12" TextColor="#5D5D5D" />
                 <Label Text="Watch the trailer" TextColor="Maroon" Font="Bold" />
                 <WebView x:Name="wvMovie" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" MinimumHeightRequest="300" Margin="5,20" />
