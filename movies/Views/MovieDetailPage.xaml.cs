@@ -36,7 +36,8 @@ namespace movies.Views
             lblDirector.Text = film.director;
             lblTime.Text = film.duration + " minute";
             lblActor.Text =film.actor;
-            wvMovie.Source = film.link; 
+            wvMovie.Source = film.link;
+            lblManu.Text = film.manufacturer;
         }
     }
 }

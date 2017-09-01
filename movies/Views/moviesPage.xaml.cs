@@ -4,7 +4,9 @@ using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using movies.Models.Response;
+using movies.Sqlite;
 using Xamarin.Forms;
+using movies.Models;
 
 namespace movies
 {
@@ -16,11 +18,18 @@ namespace movies
         private int perpage = 20;
         private int total_page = 0;
         private bool dataLoading;
+        private DataAccess database;
 
         public moviesPage()
         {
             InitializeComponent();
+            this.database = new DataAccess();
             NavigationPage.SetHasBackButton(this, false);
+            //         LocalUser user = database.GetLocalUser(0);
+            //Debug.WriteLine(@"AAAA" + user.access_token);
+            //if (user != null)
+
+
             films = new List<Film>();
             data = App.userManager.GetFilmsTasksAsync(Convert.ToString(current_page), Convert.ToString(perpage));
             FilmsResponse filmRes = data.Result;
@@ -50,6 +59,10 @@ namespace movies
                 if (films.Count - 2 <= index)
                     AddNextPageData();
             };
+
+
+            //imgLike.Source = ImageSource.FromFile("movies.Resources.like.png");
+
         }
 
         public void AddNextPageData()
@@ -58,12 +71,12 @@ namespace movies
                 return;
             listViewMovie.BeginRefresh();
             dataLoading = true;
-			current_page++;
+            current_page++;
 
             if (current_page <= total_page)
             {
-				IList<Film> moreFilms = App.userManager.GetFilmsTasksAsync(Convert.ToString(current_page), Convert.ToString(perpage)).Result.data;
-				foreach (var item in moreFilms)
+                IList<Film> moreFilms = App.userManager.GetFilmsTasksAsync(Convert.ToString(current_page), Convert.ToString(perpage)).Result.data;
+                foreach (var item in moreFilms)
                     films.Add(item);
                 Debug.WriteLine(@"             size:" + films.Count);
                 dataLoading = false;
@@ -80,6 +93,11 @@ namespace movies
         {
 
             return true;
+        }
+
+        public void OnTapped(object sender, EventArgs e)
+        {
+            ShowAlert("aaaa", "AAAAAA");
         }
     }
 }

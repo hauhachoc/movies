@@ -1,4 +1,5 @@
 ﻿using movies.Data;
+using movies.Sqlite;
 using Xamarin.Forms;
 
 namespace movies
@@ -6,10 +7,12 @@ namespace movies
     public partial class App : Application
     {
         public static BaseUserManager userManager { get; private set; }
+        DataAccess db;
         public App()
         {
+            db = new DataAccess();
             userManager = new BaseUserManager(new RestService());
-            MainPage = new NavigationPage(new Views.LoginPage());
+            MainPage = new NavigationPage(new moviesPage());
         }
 
         protected override void OnStart()
