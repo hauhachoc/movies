@@ -45,8 +45,6 @@ namespace movies.Views
                 Application.Current.Properties["token"] = Response.data.access_token;
                 database.AddLocalUser(Response.data.email, Response.data.access_token);
 
-                database.AddLocalUser(Response.data.email, Response.data.access_token);
-
                 Navigation.PushAsync(new movies.moviesPage(new DataAccess())).ConfigureAwait(false);
             }
         }

@@ -34,6 +34,12 @@ namespace movies.Sqlite
 			_connection.Delete<LocalUser>(id);
 		}
 
+		public void DeleteAllData()
+		{
+            _connection.DeleteAll<LocalUser>();
+		}
+
+
 		public void AddLocalUser(string em, string token)
         {
             LocalUser newLocalUser = new LocalUser

@@ -25,6 +25,7 @@ namespace movies
             InitializeComponent();
             this.database = db;
             NavigationPage.SetHasBackButton(this, false);
+
             films = new List<Film>();
             data = App.userManager.GetFilmsTasksAsync(Convert.ToString(current_page), Convert.ToString(perpage));
             FilmsResponse filmRes = data.Result;
@@ -50,6 +51,10 @@ namespace movies
                 {
                     if (!user.GetEnumerator().MoveNext())
                     {
+                        //var index = (listViewMovie.ItemsSource as List<Film>).IndexOf(e.SelectedItem as Film);
+                        var film = (listViewMovie.SelectedItem as Film);
+                        //Application.Current.Properties["index"] = index;
+                        Application.Current.Properties["film"] = film;
                         ShowAlert("Alert", "You need login");
                         Navigation.PushAsync(new Views.LoginPage(db));
                     }
@@ -73,9 +78,31 @@ namespace movies
                 if (films.Count - 2 <= index)
                     AddNextPageData();
             };
+            toolbar.Clicked += (sender, e) =>
+            {
+                //ShowAlert("Alert", "Log out");
+                db.DeleteAllData();
+                Application.Current.Properties["film"] = null;
+                Application.Current.Properties["token"] = "";
+                Navigation.PushAsync(new Views.LoginPage(db));
+            };
+
+            checkFilm();
             //imgLike.Source = ImageSource.FromFile("movies.Resources.like.png");
         }
 
+        public async void checkFilm()
+        {
+            await Task.Delay(1500);
+            if (Application.Current.Properties.ContainsKey("film"))
+            {
+                //var index = Convert.ToString(Application.Current.Properties["index"]);
+                if(Application.Current.Properties["film"]!=null){
+					var film = Application.Current.Properties["film"];
+					await Navigation.PushAsync(new Views.MovieDetailPage((movies.Models.Response.Film)film)); 
+                }   
+            }
+        }
         public void AddNextPageData()
         {
             if (dataLoading)
