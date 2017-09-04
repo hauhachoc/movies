@@ -3,6 +3,7 @@ using movies.Models;
 using SQLite.Net;
 using Xamarin.Forms;
 using System.Linq;
+using movies.Models.Response;
 
 namespace movies.Sqlite
 {
@@ -13,6 +14,7 @@ namespace movies.Sqlite
 		public DataAccess()
 		{
 			_connection = DependencyService.Get<ISQLite>().GetConnection();
+            _connection.CreateTable<Film>();
             _connection.CreateTable<LocalUser>();
 		}
 
@@ -33,14 +35,32 @@ namespace movies.Sqlite
 		}
 
 		public void AddLocalUser(string em, string token)
-		{
-			var newLocalUser = new LocalUser
-			{
+        {
+            LocalUser newLocalUser = new LocalUser
+            {
                 email = em,
                 access_token = token
-			};
+            };
 
-			_connection.Insert(newLocalUser);
+            _connection.Insert(newLocalUser);
+        }
+
+        public IEnumerable<Film> GetFilms()
+		{
+			return (from t in _connection.Table<Film>()
+					select t).ToList();
 		}
+
+		public void AddAllFilm(IEnumerable<Film> films)
+		{
+			_connection.InsertAll(films);
+		}
+
+
+		public void AddFilm(Film film)
+		{
+			_connection.Insert(film);
+		}
+
 	}
 }

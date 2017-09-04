@@ -4,6 +4,7 @@ using SQLite.Net.Attributes;
 
 namespace movies.Models
 {
+	[Table("LocalUser")]
     public class LocalUser
     {
 

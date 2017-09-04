@@ -1,11 +1,14 @@
 ﻿using System;
 using Newtonsoft.Json;
+using SQLite.Net.Attributes;
 
 namespace movies.Models.Response
 {
+    [Table("Film")]
     public class Film : BaseViewModel
     {
-		[JsonProperty("id")]
+		[PrimaryKey, AutoIncrement]
+        [JsonProperty("id")]
 		public int id { get; set; }
 
 		[JsonProperty("title")]

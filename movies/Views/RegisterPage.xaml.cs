@@ -32,7 +32,7 @@ namespace movies.Views
                 Debug.WriteLine(@"             Success:" + Response.data.ToString());
                 ShowAlert(null, "Register successful");
                 Application.Current.Properties["token"] = Response.data.access_token;
-                Navigation.PushAsync(new movies.moviesPage()).ConfigureAwait(false);
+                Navigation.PushAsync(new movies.moviesPage(new Sqlite.DataAccess())).ConfigureAwait(false);
             }
         }
 

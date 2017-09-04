@@ -14,13 +14,20 @@ namespace movies.Views
         public Task<BaseResponse> task;
         public BaseResponse Response { set; get; }
         public DataAccess database;
+        public IList<Film> films;
 
-        public LoginPage()
+        public LoginPage(DataAccess db)
         {
             InitializeComponent();
-            database = new DataAccess();
+            database = db;
             edtEmail.Text = "Aa@aa.aa";
             edtPw.Text = "123456";
+     //       if(db.GetFilms()!=null){
+     //          var  filmss = database.GetFilms();
+     //           if (filmss.GetEnumerator().MoveNext()){
+					//Navigation.PushAsync(new movies.moviesPage(db)).ConfigureAwait(false);
+            //    }
+            //}
         }
         void LoginClick(object sender, EventArgs e)
         {
@@ -36,20 +43,11 @@ namespace movies.Views
             {
                 Debug.WriteLine(@"             Success:" + Response.data.ToString());
                 Application.Current.Properties["token"] = Response.data.access_token;
-
-                //LocalUser localUser = new LocalUser();
-                //localUser.email = Response.data.email;
-                //localUser.full_name = Response.data.full_name;
-                //localUser.access_token = Response.data.access_token;
+                database.AddLocalUser(Response.data.email, Response.data.access_token);
 
                 database.AddLocalUser(Response.data.email, Response.data.access_token);
-                //LocalUser user = database.GetLocalUser(0);
-                //if (user != null)
-                //{
-                //    Debug.WriteLine(@"save token sql" + user.access_token);
-                //}
 
-                Navigation.PushAsync(new movies.moviesPage()).ConfigureAwait(false);
+                Navigation.PushAsync(new movies.moviesPage(new DataAccess())).ConfigureAwait(false);
             }
         }
 

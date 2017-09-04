@@ -20,16 +20,11 @@ namespace movies
         private bool dataLoading;
         private DataAccess database;
 
-        public moviesPage()
+        public moviesPage(DataAccess db)
         {
             InitializeComponent();
-            this.database = new DataAccess();
+            this.database = db;
             NavigationPage.SetHasBackButton(this, false);
-            //         LocalUser user = database.GetLocalUser(0);
-            //Debug.WriteLine(@"AAAA" + user.access_token);
-            //if (user != null)
-
-
             films = new List<Film>();
             data = App.userManager.GetFilmsTasksAsync(Convert.ToString(current_page), Convert.ToString(perpage));
             FilmsResponse filmRes = data.Result;
@@ -44,12 +39,31 @@ namespace movies
                 total_page = data.Result.paging.total_pages;
             }
             listViewMovie.ItemsSource = films;
+            db.AddAllFilm(films);
             listViewMovie.ItemSelected += (object sender, SelectedItemChangedEventArgs e) =>
             {
                 if (e.SelectedItem == null)
                     return;
-                var film = (listViewMovie.SelectedItem as Film);
-                Navigation.PushAsync(new Views.MovieDetailPage(film));
+
+                var user = db.GetLocalUser();
+                if (user != null)
+                {
+                    if (!user.GetEnumerator().MoveNext())
+                    {
+                        ShowAlert("Alert", "You need login");
+                        Navigation.PushAsync(new Views.LoginPage(db));
+                    }
+                    else
+                    {
+                        var film = (listViewMovie.SelectedItem as Film);
+                        Navigation.PushAsync(new Views.MovieDetailPage(film));
+                    }
+                }
+                else
+                {
+                    ShowAlert("Alert", "You need login");
+                    Navigation.PushAsync(new Views.LoginPage(db));
+                }
                 listViewMovie.SelectedItem = null;
             };
             listViewMovie.ItemAppearing += (object sender, ItemVisibilityEventArgs e) =>
@@ -59,10 +73,7 @@ namespace movies
                 if (films.Count - 2 <= index)
                     AddNextPageData();
             };
-
-
             //imgLike.Source = ImageSource.FromFile("movies.Resources.like.png");
-
         }
 
         public void AddNextPageData()
