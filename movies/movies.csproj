@@ -41,6 +41,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\like.png" />
     <EmbeddedResource Include="Resources\un_like.png" />
+    <EmbeddedResource Include="Views\FacebookProfilePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -76,6 +79,12 @@
     <Compile Include="Sqlite\ISQLite.cs" />
     <Compile Include="Sqlite\DataAccess.cs" />
     <Compile Include="Models\LocalUser.cs" />
+    <Compile Include="Views\FacebookProfilePage.xaml.cs">
+      <DependentUpon>FacebookProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FacebookProfile.cs" />
+    <Compile Include="ViewModels\FacebookViewModel.cs" />
+    <Compile Include="Services\FacebookServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
@@ -86,6 +95,8 @@
     <Folder Include="Renderer\" />
     <Folder Include="Resources\" />
     <Folder Include="Sqlite\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">

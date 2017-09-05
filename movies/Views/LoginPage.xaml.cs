@@ -54,6 +54,11 @@ namespace movies.Views
             Navigation.PushAsync(new Views.RegisterPage());
         }
 
+		void LoginFbClick(object sender, EventArgs e)
+		{
+			Navigation.PushAsync(new Views.FacebookProfilePage());
+		}
+
         public void ShowAlert(string title, string content)
         {
             DisplayAlert(title, content, "OK");

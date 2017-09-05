@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Diagnostics;
 using movies.Models.Response;
 using Xamarin.Forms;
 
@@ -7,6 +9,7 @@ namespace movies.Views
     public partial class MovieDetailPage : ContentPage
     {
         string fullTitle = "";
+        bool isMoreDescription = false;
 
         public MovieDetailPage()
         {
@@ -16,7 +19,7 @@ namespace movies.Views
         public MovieDetailPage(Film film)
         {
             InitializeComponent();
-            if (film!=null)
+            if (film != null)
             {
                 if (film != null)
                     fullTitle = film.title;
@@ -40,7 +43,29 @@ namespace movies.Views
                 lblActor.Text = film.actor;
                 wvMovie.Source = film.link;
                 lblManu.Text = film.manufacturer;
+
+                var tgr = new TapGestureRecognizer();
+                tgr.Tapped += (s, e) =>
+                {
+                    if (isMoreDescription)
+                    {
+                        lblDes.Lines = 4;
+                        //lblDes.Text = film.manufacturer;
+                        isMoreDescription = false;
+                        Debug.WriteLine("isMoreDescription false" + lblDes.Lines);
+                    }
+                    else
+                    {
+                        lblDes.Lines = 20;
+						//lblDes.Text = film.manufacturer;
+                        isMoreDescription = true;
+                        Debug.WriteLine("isMoreDescription true" + lblDes.Lines);
+                    }
+                };
+                lblDes.GestureRecognizers.Add(tgr);
+                //lblDes.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnLabelClicked()));
             }
+
         }
     }
 }

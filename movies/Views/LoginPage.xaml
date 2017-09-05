@@ -6,6 +6,7 @@
             <Entry x:Name="edtEmail" TextColor="Black" PlaceholderColor="Gray" Placeholder="input your name" />
             <Entry x:Name="edtPw" PlaceholderColor="Gray" TextColor="Black" Placeholder="input your name" />
             <Button TextColor="White" BackgroundColor="Teal" Text="Login" Clicked="LoginClick" />
+            <Button Text="Login with Facebook" TextColor="White" BackgroundColor="#01579B" Font="Bold"  Clicked="LoginFbClick"/>
             <Button TextColor="White" BackgroundColor="Gray" Text="Forgot Password ?" />
             <Button x:Name="btnRegister" TextColor="White" BackgroundColor="Silver" Text="Register" Clicked="RegisterClickEvent" />
         </StackLayout>
