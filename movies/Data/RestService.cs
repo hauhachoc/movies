@@ -151,5 +151,44 @@ namespace movies.Data
 
 			return Response;
 		}
-	}
+
+        public async Task<BaseRes> ForgotPwItemAsync(string mail)
+        {
+            BaseRes res = new BaseRes();
+			var uri = new Uri(string.Format(Constants.RestUrl + Constants.forgotpw_url, string.Empty));
+			try
+			{
+				var json = JsonConvert.SerializeObject(new { email = mail });
+				Debug.WriteLine(@"             json:" + json.ToString());
+				var content = new FormUrlEncodedContent(new[] {
+					new KeyValuePair<string, string>("email",mail)});
+				content.Headers.Add("app_token", Constants.token);
+
+				HttpResponseMessage response = null;
+
+				response = await client.PostAsync(uri, content).ConfigureAwait(false);
+				Debug.WriteLine(@"             content:" + response.ToString());
+
+				if (response.IsSuccessStatusCode)
+				{
+					var data = await response.Content.ReadAsStringAsync();
+					Debug.WriteLine(@"             data:" + data.ToString());
+					 res = JsonConvert.DeserializeObject<BaseRes>(data);
+
+					return res;
+				}
+				else
+				{
+					Debug.WriteLine(@"" + response.RequestMessage.RequestUri.ToString());
+				}
+
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine(@"             ERROR {0}", ex.Message);
+			}
+
+			return res;
+        }
+    }
 }

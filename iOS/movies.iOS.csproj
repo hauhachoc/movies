@@ -127,6 +127,7 @@
     <Compile Include="CustomLabelRenderer.cs" />
     <Compile Include="CustomMultiLineLabelRenderer.cs" />
     <Compile Include="SqliteService.cs" />
+    <Compile Include="UnderlineEffect.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\like.png" />

@@ -15,7 +15,7 @@ namespace movies
         private IList<Film> films;
         private Task<FilmsResponse> data;
         private int current_page = 1;
-        private int perpage = 20;
+        private int perpage = 10;
         private int total_page = 0;
         private bool dataLoading;
         private DataAccess database;

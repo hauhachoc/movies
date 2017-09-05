@@ -44,6 +44,9 @@
     <EmbeddedResource Include="Views\FacebookProfilePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ForgotPassword.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -85,6 +88,11 @@
     <Compile Include="Models\FacebookProfile.cs" />
     <Compile Include="ViewModels\FacebookViewModel.cs" />
     <Compile Include="Services\FacebookServices.cs" />
+    <Compile Include="Views\ForgotPassword.xaml.cs">
+      <DependentUpon>ForgotPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BaseRes.cs" />
+    <Compile Include="Renderer\UnderlineLabel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />

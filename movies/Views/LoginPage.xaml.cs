@@ -59,6 +59,11 @@ namespace movies.Views
 			Navigation.PushAsync(new Views.FacebookProfilePage());
 		}
 
+		void ForgotPwHandle_Clicked(object sender, EventArgs e)
+		{
+            Navigation.PushAsync(new Views.ForgotPassword());
+		}
+
         public void ShowAlert(string title, string content)
         {
             DisplayAlert(title, content, "OK");

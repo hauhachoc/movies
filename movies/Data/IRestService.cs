@@ -12,5 +12,7 @@ namespace movies.Data
 		Task<BaseResponse> RegisterItemAsync(BaseUser item);
 
 		Task<BaseResponse> LoginItemAsync(string email, string pw); 
-    }
+
+        Task<BaseRes> ForgotPwItemAsync(string email);
+	}
 }

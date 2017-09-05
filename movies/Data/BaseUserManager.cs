@@ -25,6 +25,11 @@ namespace movies.Data
 		public Task<BaseResponse> RegisterTaskAsync(BaseUser item)
 		{
 			return restService.RegisterItemAsync(item);
-		} 
-    }
+		}
+
+		public Task<BaseRes> ForgotPwTaskAsync(string email)
+		{
+			return restService.ForgotPwItemAsync(email);
+		}
+	}
 }

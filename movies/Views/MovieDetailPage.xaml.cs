@@ -37,6 +37,7 @@ namespace movies.Views
                 imgMovie.Source = ImageSource.FromUri(new Uri(film.image));
                 lblView.Text = "Views : " + film.views;
                 lblDes.Text = film.description;
+                lblDes.Lines = 2;
                 lblGenres.Text = film.category;
                 lblDirector.Text = film.director;
                 lblTime.Text = film.duration + " minute";
@@ -50,14 +51,12 @@ namespace movies.Views
                     if (isMoreDescription)
                     {
                         lblDes.Lines = 4;
-                        //lblDes.Text = film.manufacturer;
                         isMoreDescription = false;
                         Debug.WriteLine("isMoreDescription false" + lblDes.Lines);
                     }
                     else
                     {
                         lblDes.Lines = 20;
-						//lblDes.Text = film.manufacturer;
                         isMoreDescription = true;
                         Debug.WriteLine("isMoreDescription true" + lblDes.Lines);
                     }
@@ -65,7 +64,6 @@ namespace movies.Views
                 lblDes.GestureRecognizers.Add(tgr);
                 //lblDes.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnLabelClicked()));
             }
-
         }
     }
 }
