@@ -42,8 +42,16 @@ namespace movies.Views
                 lblDirector.Text = film.director;
                 lblTime.Text = film.duration + " minute";
                 lblActor.Text = film.actor;
-                wvMovie.Source = film.link;
-                lblManu.Text = film.manufacturer;
+
+                string url = film.link.Substring(film.link.LastIndexOf("=")).Replace("=", "");
+                var html = new HtmlWebViewSource
+                {
+                    Html = "<iframe src=\"https://www.youtube.com/embed/"+ url +"\" width=\"100%\" height=\"200\" frameborder=\"0\" allowfullscreen></iframe>"
+				};
+                wvMovie.Source = html;
+                Debug.WriteLine(@" html:" + html.Html);
+
+				lblManu.Text = film.manufacturer;
 
                 var tgr = new TapGestureRecognizer();
                 tgr.Tapped += (s, e) =>
