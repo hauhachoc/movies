@@ -126,6 +126,7 @@
     <Compile Include="CustomMultiLineLabelRenderer.cs" />
     <Compile Include="SqliteService.cs" />
     <Compile Include="UnderlineEffect.cs" />
+    <Compile Include="MyEntryRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -143,6 +144,8 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable\like.png" />
     <AndroidResource Include="Resources\drawable\un_like.png" />
+    <AndroidResource Include="Resources\drawable\bg.png" />
+    <AndroidResource Include="Resources\drawable\btnClose.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Raw\" />

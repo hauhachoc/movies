@@ -128,12 +128,15 @@
     <Compile Include="CustomMultiLineLabelRenderer.cs" />
     <Compile Include="SqliteService.cs" />
     <Compile Include="UnderlineEffect.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\like.png" />
+    <Compile Include="MyEntryRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\un_like.png" />
+    <EmbeddedResource Include="Resources\like.png" />
+    <EmbeddedResource Include="Resources\btnClose.png" />
+    <EmbeddedResource Include="Resources\bg.png" />
+    <EmbeddedResource Include="bg.png" />
+    <EmbeddedResource Include="btnClose.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.4.270\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.270\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

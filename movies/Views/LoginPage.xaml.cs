@@ -19,15 +19,19 @@ namespace movies.Views
         public LoginPage(DataAccess db)
         {
             InitializeComponent();
+            BindingContext = this;
             database = db;
             edtEmail.Text = "Aa@aa.aa";
             edtPw.Text = "123456";
-     //       if(db.GetFilms()!=null){
-     //          var  filmss = database.GetFilms();
-     //           if (filmss.GetEnumerator().MoveNext()){
-					//Navigation.PushAsync(new movies.moviesPage(db)).ConfigureAwait(false);
-            //    }
-            //}
+
+
+
+            var tgr = new TapGestureRecognizer();
+            tgr.Tapped += (s, ee) =>
+            {
+                Navigation.PushAsync(new Views.RegisterPage());
+            };
+            btnRegister.GestureRecognizers.Add(tgr);
         }
         void LoginClick(object sender, EventArgs e)
         {
@@ -49,20 +53,15 @@ namespace movies.Views
             }
         }
 
-        void RegisterClickEvent(object sender, EventArgs e)
+        void LoginFbClick(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Views.RegisterPage());
+            Navigation.PushAsync(new Views.FacebookProfilePage());
         }
 
-		void LoginFbClick(object sender, EventArgs e)
-		{
-			Navigation.PushAsync(new Views.FacebookProfilePage());
-		}
-
-		void ForgotPwHandle_Clicked(object sender, EventArgs e)
-		{
+        void ForgotPwHandle_Clicked(object sender, EventArgs e)
+        {
             Navigation.PushAsync(new Views.ForgotPassword());
-		}
+        }
 
         public void ShowAlert(string title, string content)
         {

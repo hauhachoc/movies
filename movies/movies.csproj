@@ -47,6 +47,8 @@
     <EmbeddedResource Include="Views\ForgotPassword.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\bg.png" />
+    <EmbeddedResource Include="Resources\btnClose.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -93,6 +95,7 @@
     </Compile>
     <Compile Include="Models\BaseRes.cs" />
     <Compile Include="Renderer\UnderlineLabel.cs" />
+    <Compile Include="Renderer\MyEntry.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
