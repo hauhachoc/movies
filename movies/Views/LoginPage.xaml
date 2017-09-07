@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage BackgroundColor="Red" x:Name="bgLogin" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="movies.Views.LoginPage" xmlns:local="clr-namespace:movies" xmlns:controls="clr-namespace:movies.Renderer">
+<ContentPage x:Name="bgLogin" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="movies.Views.LoginPage" xmlns:local="clr-namespace:movies" xmlns:controls="clr-namespace:movies.Renderer">
     <ContentPage.Content>
-        <StackLayout Margin="40,40,50,0" Spacing="20" Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-            <Label TextColor="White" x:Name="lblName" Text="Login" FontSize="40" VerticalOptions="Center" HorizontalOptions="Center" />
-            <BoxView HeightRequest="1" BackgroundColor="White" HorizontalOptions="FillAndExpand" />
-            <controls:MyEntry  x:Name="edtEmail" TextColor="White" PlaceholderColor="White" Placeholder="Input your name" BorderColor="White" /> 
-            <controls:MyEntry x:Name="edtPw" PlaceholderColor="White" TextColor="White" Placeholder="Input your name" BorderColor="White" />
-            <Button TextColor="White" BackgroundColor="#FA6020" Text="Login" Clicked="LoginClick" />
-            <Button TextColor="White" BackgroundColor="#33FFFFFF" Text="Forgot Password ?" Clicked="ForgotPwHandle_Clicked" />
-            <Button Text="Login with Facebook" TextColor="White" BackgroundColor="#01579B" Font="Bold" Clicked="LoginFbClick" />
-            <BoxView HeightRequest="1" BackgroundColor="White" HorizontalOptions="FillAndExpand" />
-            <Image Margin="0,10" x:Name="imgClose" Source="{local:ImageResource movies.Resources.btnClose.png}" WidthRequest="40" HeightRequest="40" HorizontalOptions="Center" VerticalOptions="Center" />
-            <StackLayout Orientation="Horizontal" x:Name="btnRegister" HorizontalOptions="CenterAndExpand">
-                <Label Text="You haven't an account?" TextColor="White" FontSize="12" />
-                <Label Text="REGISTER NOW!" TextColor="Red" FontSize="14">
-                    <!-- <Label.Effects>
-                        <local:UnderlineEffect />
-                    </Label.Effects>-->
-                </Label>
-            </StackLayout>
-        </StackLayout>
+        <ScrollView Orientation="Vertical">
+            <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="1,1,1,1" Source="{local:ImageResource movies.Resources.bg.png}" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                <StackLayout AbsoluteLayout.LayoutBounds="0, 10, 1, 50" AbsoluteLayout.LayoutFlags="WidthProportional,HeightProportional" Margin="40,40,50,0" Spacing="20" Orientation="Vertical">
+                    <Label TextColor="White" x:Name="lblName" Text="Login" FontSize="40" VerticalOptions="Center" HorizontalOptions="Center" />
+                    <BoxView HeightRequest="1" BackgroundColor="White" HorizontalOptions="FillAndExpand" />
+                    <StackLayout Spacing="20" Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                        <controls:MyEntry x:Name="edtEmail" TextColor="White" PlaceholderColor="White" Placeholder="Email" BorderColor="White" />
+                        <controls:MyEntry x:Name="edtPw" PlaceholderColor="White" TextColor="White" Placeholder="Password" BorderColor="White" />
+                    </StackLayout>
+                    <Button TextColor="White" BackgroundColor="#FA6020" Text="Login" Clicked="LoginClick" />
+                    <Button TextColor="White" BackgroundColor="#33FFFFFF" Text="Forgot Password ?" Clicked="ForgotPwHandle_Clicked" />
+                    <Button Text="Login with Facebook" TextColor="White" BackgroundColor="#01579B" Font="Bold" Clicked="LoginFbClick" />
+                    <BoxView HeightRequest="1" BackgroundColor="White" HorizontalOptions="FillAndExpand" />
+                    <Image Margin="0,10" x:Name="imgClose" Source="{local:ImageResource movies.Resources.btnClose.png}" WidthRequest="40" HeightRequest="40" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <StackLayout Orientation="Horizontal" x:Name="btnRegister" HorizontalOptions="CenterAndExpand">
+                        <Label Text="You haven't an account?" TextColor="White" FontSize="12" />
+                        <Label Text="REGISTER NOW!" TextColor="#D05834" FontSize="14" />
+                    </StackLayout>
+                </StackLayout>
+            </AbsoluteLayout>
+        </ScrollView>
         <!--        <ActivityIndicator x:Name="actInd" IsRunning="true" IsVisible="true" />-->
     </ContentPage.Content>
 </ContentPage>

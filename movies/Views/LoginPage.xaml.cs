@@ -11,6 +11,8 @@ namespace movies.Views
 {
     public partial class LoginPage : ContentPage
     {
+       
+
         public Task<BaseResponse> task;
         public BaseResponse Response { set; get; }
         public DataAccess database;
@@ -21,7 +23,7 @@ namespace movies.Views
             InitializeComponent();
             BindingContext = this;
             database = db;
-            edtEmail.Text = "Aa@aa.aa";
+            edtEmail.Text = "Bb@bb.bb";
             edtPw.Text = "123456";
 
 
@@ -67,5 +69,7 @@ namespace movies.Views
         {
             DisplayAlert(title, content, "OK");
         }
+
+		
     }
 }

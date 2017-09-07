@@ -14,7 +14,11 @@ namespace movies
         {
             db = new DataAccess();
             userManager = new BaseUserManager(new RestService());
-            MainPage = new NavigationPage(new moviesPage(db));
+            MainPage = new NavigationPage(new moviesPage(db))
+            {
+                BarBackgroundColor = Color.FromHex("#FA6020"),
+                BarTextColor = Color.White
+            };
         }
 
         protected override void OnStart()

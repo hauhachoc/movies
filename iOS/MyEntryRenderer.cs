@@ -49,7 +49,7 @@ namespace movies.iOS
 		{
 			var borderLayer = new CALayer();
 			borderLayer.MasksToBounds = true;
-			borderLayer.Frame = new CoreGraphics.CGRect(0f, Frame.Height / 2, Frame.Width, 0.5f);
+			borderLayer.Frame = new CoreGraphics.CGRect(0f, Frame.Height/2 , Frame.Width/1.12, 0.5f);
             borderLayer.BorderColor = view.BorderColor.ToCGColor();
 			borderLayer.BorderWidth = 0.5f;
 

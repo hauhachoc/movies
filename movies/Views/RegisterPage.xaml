@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage BackgroundColor="White" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="movies.Views.RegisterPage">
-    <StackLayout Margin="40,40,50,0" Spacing="20" Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-        <Label TextColor="Black" x:Name="lblName" Text="Register" FontSize="40" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0,0,50" />
-        <Entry TextColor="Black" x:Name="edtName" PlaceholderColor="Gray" Placeholder="Name" />
-        <Entry TextColor="Black" x:Name="edtEmail" PlaceholderColor="Gray" Placeholder="Email" />
-        <Entry TextColor="Black" x:Name="edtPw" PlaceholderColor="Gray" Placeholder="Password" />
-        <Entry TextColor="Black" x:Name="edtConfirmPw" PlaceholderColor="Gray" Placeholder="Confirm Password" />
-        <Button x:Name="btnRegister" Clicked="Register_Clicked" Margin="0,50,0,0" TextColor="White" BackgroundColor="Teal" Text="Register" />
-    </StackLayout>
+<ContentPage BackgroundColor="White" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="movies.Views.RegisterPage" xmlns:controls="clr-namespace:movies.Renderer" xmlns:local="clr-namespace:movies">
+    <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="1,1,1,1" Source="{local:ImageResource movies.Resources.bg.png}" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+        <StackLayout Spacing="20" AbsoluteLayout.LayoutBounds="0, 40, 1, 50" AbsoluteLayout.LayoutFlags="WidthProportional,HeightProportional" Margin="40,40,50,0" Orientation="Vertical">
+            <Label TextColor="White" Text="Register" FontSize="20" VerticalOptions="Center" HorizontalOptions="Center" />
+            <BoxView HeightRequest="1" BackgroundColor="White" HorizontalOptions="FillAndExpand" />
+            <controls:MyEntry TextColor="White" x:Name="edtName" Placeholder="Name" PlaceholderColor="White" BorderColor="White" />
+            <controls:MyEntry x:Name="edtEmail" Placeholder="Email" TextColor="White" PlaceholderColor="White" BorderColor="White" />
+            <controls:MyEntry x:Name="edtPw" Placeholder="Password" TextColor="White" PlaceholderColor="White" BorderColor="White" />
+            <controls:MyEntry x:Name="edtConfirmPw" Placeholder="Confirm Password" TextColor="White" PlaceholderColor="White" BorderColor="White" />
+            <Button x:Name="btnRegister" Clicked="Register_Clicked" BackgroundColor="#FA6020" TextColor="White" Text="Register" />
+            <BoxView HeightRequest="1" BackgroundColor="White" HorizontalOptions="FillAndExpand" />
+            <Image Margin="0,10" x:Name="imgClose" Source="{local:ImageResource movies.Resources.btnClose.png}" WidthRequest="40" HeightRequest="40" HorizontalOptions="Center" VerticalOptions="Center" />
+        </StackLayout>
+    </AbsoluteLayout>
 </ContentPage>

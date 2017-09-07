@@ -4,6 +4,7 @@ using movies.Models.Response;
 using movies.Models;
 using Xamarin.Forms;
 using System.Diagnostics;
+using movies.Sqlite;
 
 namespace movies.Views
 {
@@ -11,10 +12,11 @@ namespace movies.Views
     {
         public BaseResponse Response { set; get; }
         public Task<BaseResponse> task;
-
+		public DataAccess database;
         public RegisterPage()
         {
             InitializeComponent();
+            database = new DataAccess(); 
         }
 
         void Register_Clicked(object sender, EventArgs e)
@@ -32,6 +34,7 @@ namespace movies.Views
                 Debug.WriteLine(@"             Success:" + Response.data.ToString());
                 ShowAlert(null, "Register successful");
                 Application.Current.Properties["token"] = Response.data.access_token;
+                database.AddLocalUser(Response.data.email, Response.data.access_token);
                 Navigation.PushAsync(new movies.moviesPage(new Sqlite.DataAccess())).ConfigureAwait(false);
             }
         }
