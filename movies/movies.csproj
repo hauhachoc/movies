@@ -96,6 +96,12 @@
     <Compile Include="Models\BaseRes.cs" />
     <Compile Include="Renderer\UnderlineLabel.cs" />
     <Compile Include="Renderer\MyEntry.cs" />
+    <Compile Include="Behaviors\CompareValidationBehavior.cs" />
+    <Compile Include="Behaviors\DateValidationBehavior.cs" />
+    <Compile Include="Behaviors\EmailValidatorBehavior.cs" />
+    <Compile Include="Behaviors\MaxLengthValidatorBehavior.cs" />
+    <Compile Include="Behaviors\NumberValidationBehavior.cs" />
+    <Compile Include="Behaviors\PasswordValidationBehavior.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
@@ -108,6 +114,7 @@
     <Folder Include="Sqlite\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Services\" />
+    <Folder Include="Behaviors\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">

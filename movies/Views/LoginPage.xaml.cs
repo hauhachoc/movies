@@ -11,7 +11,6 @@ namespace movies.Views
 {
     public partial class LoginPage : ContentPage
     {
-       
 
         public Task<BaseResponse> task;
         public BaseResponse Response { set; get; }
@@ -25,8 +24,8 @@ namespace movies.Views
             database = db;
             edtEmail.Text = "Bb@bb.bb";
             edtPw.Text = "123456";
-
-
+            lblNameTitle.IsVisible = false;
+            lblPwTitle.IsVisible = false;
 
             var tgr = new TapGestureRecognizer();
             tgr.Tapped += (s, ee) =>
@@ -37,22 +36,36 @@ namespace movies.Views
         }
         void LoginClick(object sender, EventArgs e)
         {
-            //App.userManager.LoginTaskAsync(edtEmail.Text, edtPw.Text);
-            Response = new BaseResponse();
-            task = App.userManager.LoginTaskAsync(edtEmail.Text, edtPw.Text);
-            Response = task.Result;
-            if (Response.error)
+            if (edtEmail.Text.Equals(""))
             {
-                ShowAlert(null, "Login Failed");
+                lblPwTitle.IsVisible = false;
+                lblNameTitle.IsVisible = true;
+            }
+            else if (edtPw.Text.Equals(""))
+            {
+                lblNameTitle.IsVisible = false;
+                lblPwTitle.IsVisible = true;
             }
             else
             {
-                Debug.WriteLine(@"             Success:" + Response.data.ToString());
-                Application.Current.Properties["token"] = Response.data.access_token;
-                database.AddLocalUser(Response.data.email, Response.data.access_token);
+                //App.userManager.LoginTaskAsync(edtEmail.Text, edtPw.Text);
+                Response = new BaseResponse();
+                task = App.userManager.LoginTaskAsync(edtEmail.Text, edtPw.Text);
+                Response = task.Result;
+                if (Response.error)
+                {
+                    ShowAlert(null, Response.message);
+                }
+                else
+                {
+                    Debug.WriteLine(@"             Success:" + Response.data.ToString());
+                    Application.Current.Properties["token"] = Response.data.access_token;
+                    database.AddLocalUser(Response.data.email, Response.data.access_token);
 
-                Navigation.PushAsync(new movies.moviesPage(new DataAccess())).ConfigureAwait(false);
+                    Navigation.PushAsync(new movies.moviesPage(new DataAccess())).ConfigureAwait(false);
+                }
             }
+
         }
 
         void LoginFbClick(object sender, EventArgs e)
@@ -70,6 +83,6 @@ namespace movies.Views
             DisplayAlert(title, content, "OK");
         }
 
-		
+
     }
 }

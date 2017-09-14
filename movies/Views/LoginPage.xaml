@@ -8,8 +8,14 @@
                     <Label TextColor="White" x:Name="lblName" Text="Login" FontSize="40" VerticalOptions="Center" HorizontalOptions="Center" />
                     <BoxView HeightRequest="1" BackgroundColor="White" HorizontalOptions="FillAndExpand" />
                     <StackLayout Spacing="20" Orientation="Vertical" HorizontalOptions="FillAndExpand">
-                        <controls:MyEntry x:Name="edtEmail" TextColor="White" PlaceholderColor="White" Placeholder="Email" BorderColor="White" />
-                        <controls:MyEntry x:Name="edtPw" PlaceholderColor="White" TextColor="White" Placeholder="Password" BorderColor="White" />
+                        <StackLayout Spacing="5" Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                            <Label TextColor="Yellow" x:Name="lblNameTitle" Text="Email not empty" FontSize="16" VerticalOptions="Start" HorizontalOptions="Start" />
+                            <controls:MyEntry x:Name="edtEmail" TextColor="White" PlaceholderColor="White" Placeholder="Email" BorderColor="White" />
+                        </StackLayout>
+                        <StackLayout Spacing="5" Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                            <Label TextColor="Yellow" x:Name="lblPwTitle" Text="Password not empty" FontSize="16" VerticalOptions="Start" HorizontalOptions="Start" />
+                            <controls:MyEntry x:Name="edtPw" PlaceholderColor="White" TextColor="White" Placeholder="Password" BorderColor="White" />
+                        </StackLayout>
                     </StackLayout>
                     <Button TextColor="White" BackgroundColor="#FA6020" Text="Login" Clicked="LoginClick" />
                     <Button TextColor="White" BackgroundColor="#33FFFFFF" Text="Forgot Password ?" Clicked="ForgotPwHandle_Clicked" />

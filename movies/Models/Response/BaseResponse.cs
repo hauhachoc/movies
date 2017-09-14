@@ -12,7 +12,7 @@ namespace movies.Models.Response
 		public int code { get; set; }
 
 		[JsonProperty("message")]
-		public Message message { get; set; }
+        public String message { get; set; }
 
 		[JsonProperty("data")]
 		public UserResponse data { get; set; }
