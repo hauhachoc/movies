@@ -78,6 +78,7 @@ namespace movies
                 if (films.Count - 2 <= index)
                     AddNextPageData();
             };
+
             toolbar.Clicked += (sender, e) =>
             {
                 //ShowAlert("Alert", "Log out");
@@ -86,6 +87,12 @@ namespace movies
                 Application.Current.Properties["token"] = "";
                 Navigation.PushAsync(new Views.LoginPage(db));
             };
+
+            //imgTaped.Tapped += (sender, e) =>
+            //{
+            //    ShowAlert(null, "Tested");
+            //    imgLike.Source = FileImageSource.FromFile("local:ImageResource movies.Resources.un_like.png");
+            //};
 
             checkFilm();
             //imgLike.Source = ImageSource.FromFile("movies.Resources.like.png");
@@ -97,10 +104,11 @@ namespace movies
             if (Application.Current.Properties.ContainsKey("film"))
             {
                 //var index = Convert.ToString(Application.Current.Properties["index"]);
-                if(Application.Current.Properties["film"]!=null){
-					var film = Application.Current.Properties["film"];
-					await Navigation.PushAsync(new Views.MovieDetailPage((movies.Models.Response.Film)film)); 
-                }   
+                if (Application.Current.Properties["film"] != null)
+                {
+                    var film = Application.Current.Properties["film"];
+                    await Navigation.PushAsync(new Views.MovieDetailPage((movies.Models.Response.Film)film));
+                }
             }
         }
         public void AddNextPageData()
@@ -129,13 +137,19 @@ namespace movies
 
         protected override bool OnBackButtonPressed()
         {
-
             return true;
         }
 
-        public void OnTapped(object sender, EventArgs e)
+        //public void OnTapped(object sender, EventArgs e)
+        //{
+        //    ShowAlert("aaaa", "AAAAAA");
+        //}
+
+        private void Image_OnTapped(object sender, EventArgs e)
         {
-            ShowAlert("aaaa", "AAAAAA");
+            ShowAlert(null, "Tested");
+            Image img = new Image();
+            img.Source = FileImageSource.FromFile("local:ImageResource movies.Resources.un_like.png");
         }
     }
 }

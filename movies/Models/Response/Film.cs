@@ -1,5 +1,4 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using SQLite.Net.Attributes;
 
 namespace movies.Models.Response

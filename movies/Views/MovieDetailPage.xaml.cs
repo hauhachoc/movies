@@ -35,7 +35,7 @@ namespace movies.Views
                     lblTitle.Text = film.title;
                 }
                 imgMovie.Source = ImageSource.FromUri(new Uri(film.image));
-                lblView.Text = "Views : " + film.views;
+                lblView.Text =  ""+film.views;
                 lblDes.Text = film.description;
                 lblDes.Lines = 2;
                 lblGenres.Text = film.category;

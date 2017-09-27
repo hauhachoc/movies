@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="movies.Views.MovieDetailPage" xmlns:local="clr-namespace:movies.Renderer"   xmlns:controls="clr-namespace:movies.Renderer" BackgroundColor="White">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="movies.Views.MovieDetailPage" xmlns:local="clr-namespace:movies.Renderer" xmlns:controls="clr-namespace:movies.Renderer" BackgroundColor="White">
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="toolbar" />
     </ContentPage.ToolbarItems>
@@ -19,7 +19,10 @@
                         <StackLayout Spacing="2" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="StartAndExpand" Orientation="Vertical">
                             <StackLayout VerticalOptions="Center" HorizontalOptions="Fill" Orientation="Vertical">
                                 <Label x:Name="lblTitle" TextColor="#5D5D5D" />
-                                <Label x:Name="lblView" FontSize="12" TextColor="#50AB78" />
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Views : " FontSize="12" TextColor="Black" />
+                                    <Label x:Name="lblView" FontSize="12" TextColor="#50AB78" />
+                                </StackLayout>
                                 <StackLayout Orientation="Horizontal">
                                     <Label Text="Genres : " FontSize="12" TextColor="Black" />
                                     <Label x:Name="lblGenres" FontSize="12" TextColor="#50AB78" />
@@ -49,7 +52,7 @@
                     </Grid.Children>
                 </Grid>
                 <controls:MultiLineLabel x:Name="lblDes" FontSize="12" TextColor="#5D5D5D" />
-                <Label Text="More" TextColor="Maroon" FontSize="14" HorizontalOptions="End"  HorizontalTextAlignment="End">
+                <Label Text="More" TextColor="Maroon" FontSize="14" HorizontalOptions="End" HorizontalTextAlignment="End">
                     <Label.Effects>
                         <local:UnderlineEffect />
                     </Label.Effects>
